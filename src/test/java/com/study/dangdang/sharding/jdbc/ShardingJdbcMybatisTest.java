@@ -30,7 +30,7 @@ public class ShardingJdbcMybatisTest {
     @Test
     public void testUserInsert() {
         User u = new User();
-        u.setUserId(17);
+        u.setUserId(18);
         u.setAge(25);
         u.setName("war3");
         Assert.assertEquals(userService.insert(u), true);
