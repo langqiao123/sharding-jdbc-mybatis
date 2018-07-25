@@ -1,8 +1,8 @@
-package com.study.dangdang.sharding.jdbc.service;
+package com.langqiao.sharding.jdbc.service;
 
 import java.util.List;
 
-import com.study.dangdang.sharding.jdbc.entity.User;
+import com.langqiao.sharding.jdbc.entity.User;
 
 public interface UserService {
     

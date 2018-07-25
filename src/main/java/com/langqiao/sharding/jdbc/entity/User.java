@@ -1,17 +1,18 @@
-package com.study.dangdang.sharding.jdbc.entity;
+package com.langqiao.sharding.jdbc.entity;
 
 import java.io.Serializable;
 
-public class Student implements Serializable{
+public class User implements Serializable{
     
     /**
      * 
      */
-    private static final long serialVersionUID = 8920597824668331209L;
+    private static final long serialVersionUID = 1L;
+    
 
     private Integer id;
     
-    private Integer studentId;
+    private Integer userId;
     
     private String name;
     
@@ -25,12 +26,12 @@ public class Student implements Serializable{
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -47,6 +48,11 @@ public class Student implements Serializable{
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", userId=" + userId + ", name=" + name + ", age=" + age + "]";
     }
     
 }

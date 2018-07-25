@@ -1,12 +1,12 @@
-package com.study.dangdang.sharding.jdbc.service.impl;
+package com.langqiao.sharding.jdbc.service.impl;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.study.dangdang.sharding.jdbc.entity.Student;
-import com.study.dangdang.sharding.jdbc.mapper.StudentMapper;
-import com.study.dangdang.sharding.jdbc.service.StudentService;
+import com.langqiao.sharding.jdbc.entity.Student;
+import com.langqiao.sharding.jdbc.mapper.StudentMapper;
+import com.langqiao.sharding.jdbc.service.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService{

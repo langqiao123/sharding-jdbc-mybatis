@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.study</groupId>
+  <groupId>com.langqiao</groupId>
   <artifactId>sharding-jdbc-mybatis</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -12,8 +12,8 @@
 
  <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.2.5.RELEASE</spring.version>
-		<mybatis.version>3.2.4</mybatis.version>
+		<spring.version>4.3.3.RELEASE</spring.version>
+		<mybatis.version>3.2.6</mybatis.version>
 	</properties>
 
 	<dependencies>

@@ -8,12 +8,12 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 		
-	<context:component-scan base-package="com.study.dangdang.sharding.jdbc" />
+	<context:component-scan base-package="com.langqiao.sharding.jdbc" />
     
     
     
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.study.dangdang.sharding.jdbc.mapper"/>
+        <property name="basePackage" value="com.langqiao.sharding.jdbc.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     
@@ -53,7 +53,7 @@
     <bean id="userDatabaseShardingStrategy" class="com.dangdang.ddframe.rdb.sharding.api.strategy.database.DatabaseShardingStrategy">
         <constructor-arg index="0" value="user_id"/>
         <constructor-arg index="1">
-            <bean class="com.study.dangdang.sharding.jdbc.algorithm.UserSingleKeyDatabaseShardingAlgorithm" />
+            <bean class="com.langqiao.sharding.jdbc.algorithm.UserSingleKeyDatabaseShardingAlgorithm" />
         </constructor-arg>
     </bean>
     
@@ -61,7 +61,7 @@
     <bean id="userTableShardingStrategy" class="com.dangdang.ddframe.rdb.sharding.api.strategy.table.TableShardingStrategy">
         <constructor-arg index="0" value="user_id"/>
         <constructor-arg index="1">
-            <bean class="com.study.dangdang.sharding.jdbc.algorithm.UserSingleKeyTableShardingAlgorithm" />
+            <bean class="com.langqiao.sharding.jdbc.algorithm.UserSingleKeyTableShardingAlgorithm" />
         </constructor-arg>
     </bean>
     
@@ -85,7 +85,7 @@
     <bean id="studentDatabaseShardingStrategy" class="com.dangdang.ddframe.rdb.sharding.api.strategy.database.DatabaseShardingStrategy">
         <constructor-arg index="0" value="student_id"/>
         <constructor-arg index="1">
-            <bean class="com.study.dangdang.sharding.jdbc.algorithm.StudentSingleKeyDatabaseShardingAlgorithm" />
+            <bean class="com.langqiao.sharding.jdbc.algorithm.StudentSingleKeyDatabaseShardingAlgorithm" />
         </constructor-arg>
     </bean>
     
@@ -93,7 +93,7 @@
     <bean id="studentTableShardingStrategy" class="com.dangdang.ddframe.rdb.sharding.api.strategy.table.TableShardingStrategy">
         <constructor-arg index="0" value="student_id"/>
         <constructor-arg index="1">
-            <bean class="com.study.dangdang.sharding.jdbc.algorithm.StudentSingleKeyTableShardingAlgorithm" />
+            <bean class="com.langqiao.sharding.jdbc.algorithm.StudentSingleKeyTableShardingAlgorithm" />
         </constructor-arg>
     </bean>
     

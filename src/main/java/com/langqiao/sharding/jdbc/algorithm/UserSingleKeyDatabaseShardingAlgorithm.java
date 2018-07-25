@@ -1,4 +1,4 @@
-package com.study.dangdang.sharding.jdbc.algorithm;
+package com.langqiao.sharding.jdbc.algorithm;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
@@ -12,7 +12,7 @@ import com.google.common.collect.Range;
  * @author lyncc
  *
  */
-public class StudentSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer>{
+public class UserSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer>{
 
     /**
      * sql 中关键字 匹配符为 =的时候，表的路由函数
@@ -25,7 +25,7 @@ public class StudentSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatab
         }
         throw new IllegalArgumentException();
     }
-    
+
     /**
      * sql 中关键字 匹配符为 in 的时候，表的路由函数
      */

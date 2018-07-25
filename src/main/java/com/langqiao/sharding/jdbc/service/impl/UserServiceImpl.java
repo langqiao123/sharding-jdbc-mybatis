@@ -1,4 +1,4 @@
-package com.study.dangdang.sharding.jdbc.service.impl;
+package com.langqiao.sharding.jdbc.service.impl;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.study.dangdang.sharding.jdbc.entity.Student;
-import com.study.dangdang.sharding.jdbc.entity.User;
-import com.study.dangdang.sharding.jdbc.mapper.StudentMapper;
-import com.study.dangdang.sharding.jdbc.mapper.UserMapper;
-import com.study.dangdang.sharding.jdbc.service.UserService;
+import com.langqiao.sharding.jdbc.entity.Student;
+import com.langqiao.sharding.jdbc.entity.User;
+import com.langqiao.sharding.jdbc.mapper.StudentMapper;
+import com.langqiao.sharding.jdbc.mapper.UserMapper;
+import com.langqiao.sharding.jdbc.service.UserService;
 
 @Service
 @Transactional

@@ -1,8 +1,8 @@
-package com.study.dangdang.sharding.jdbc.mapper;
+package com.langqiao.sharding.jdbc.mapper;
 
 import java.util.List;
 
-import com.study.dangdang.sharding.jdbc.entity.User;
+import com.langqiao.sharding.jdbc.entity.User;
 
 public interface UserMapper {
     

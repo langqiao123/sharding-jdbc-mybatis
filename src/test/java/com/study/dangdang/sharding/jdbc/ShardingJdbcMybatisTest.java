@@ -11,10 +11,10 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.study.dangdang.sharding.jdbc.entity.Student;
-import com.study.dangdang.sharding.jdbc.entity.User;
-import com.study.dangdang.sharding.jdbc.service.StudentService;
-import com.study.dangdang.sharding.jdbc.service.UserService;
+import com.langqiao.sharding.jdbc.entity.Student;
+import com.langqiao.sharding.jdbc.entity.User;
+import com.langqiao.sharding.jdbc.service.StudentService;
+import com.langqiao.sharding.jdbc.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath*:config/spring/spring-database.xml",
