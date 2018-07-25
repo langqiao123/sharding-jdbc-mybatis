@@ -10,8 +10,6 @@
 		
 	<context:component-scan base-package="com.langqiao.sharding.jdbc" />
     
-    
-    
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.langqiao.sharding.jdbc.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
@@ -23,6 +21,21 @@
         <property name="mapperLocations" value="classpath*:config/mapper/*Mapper.xml"/>
     </bean>
     
+    <!-- 对datasource进行封装 -->
+    <bean id="shardingDataSource" class="com.dangdang.ddframe.rdb.sharding.api.ShardingDataSource">
+        <constructor-arg ref="shardingRule"/>
+    </bean>
+    
+    <!-- 构成分库分表的规则 传入数据源集合和每个表的分库分表的具体规则 -->
+    <bean id="shardingRule" class="com.dangdang.ddframe.rdb.sharding.api.rule.ShardingRule">
+        <constructor-arg index="0" ref="dataSourceRule"/>
+        <constructor-arg index="1">
+            <list>
+                <ref bean="userTableRule"/>
+                <ref bean="studentTableRule"/>
+            </list>
+        </constructor-arg>
+    </bean>
     
     <!-- 配置好dataSourceRulue,即对数据源进行管理 -->
     <bean id="dataSourceRule" class="com.dangdang.ddframe.rdb.sharding.api.rule.DataSourceRule">
@@ -65,8 +78,6 @@
         </constructor-arg>
     </bean>
     
-    
-    
       <!-- 对t_student表的配置，进行分库配置，逻辑表名为t_user，每个库有实际的三张表 -->
     <bean id="studentTableRule" class="com.dangdang.ddframe.rdb.sharding.api.rule.TableRule">
         <constructor-arg value="t_student" index="0"/>
@@ -97,23 +108,6 @@
         </constructor-arg>
     </bean>
     
-    
-    <!-- 构成分库分表的规则 传入数据源集合和每个表的分库分表的具体规则 -->
-    <bean id="shardingRule" class="com.dangdang.ddframe.rdb.sharding.api.rule.ShardingRule">
-        <constructor-arg index="0" ref="dataSourceRule"/>
-        <constructor-arg index="1">
-            <list>
-                <ref bean="userTableRule"/>
-                <ref bean="studentTableRule"/>
-            </list>
-        </constructor-arg>
-    </bean>
-    
-    <!-- 对datasource进行封装 -->
-    <bean id="shardingDataSource" class="com.dangdang.ddframe.rdb.sharding.api.ShardingDataSource">
-        <constructor-arg ref="shardingRule"/>
-    </bean>
-
     <!-- 事务 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -122,5 +116,4 @@
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 		
-
 </beans>

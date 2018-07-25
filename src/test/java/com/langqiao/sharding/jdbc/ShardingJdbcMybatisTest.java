@@ -1,4 +1,4 @@
-package com.study.dangdang.sharding.jdbc;
+package com.langqiao.sharding.jdbc;
 
 import java.util.Arrays;
 import java.util.List;
