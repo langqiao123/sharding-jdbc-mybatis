@@ -17,7 +17,8 @@ import com.langqiao.sharding.jdbc.service.StudentService;
 import com.langqiao.sharding.jdbc.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath*:config/spring/spring-database.xml",
+@ContextConfiguration(locations = { 
+		"classpath*:config/spring/spring-database.xml",
         "classpath*:config/spring/spring-sharding.xml" })
 public class ShardingJdbcMybatisTest {
 
@@ -30,7 +31,7 @@ public class ShardingJdbcMybatisTest {
     @Test
     public void testUserInsert() {
         User u = new User();
-        u.setUserId(18);
+        u.setUserId(20);
         u.setAge(25);
         u.setName("war3");
         Assert.assertEquals(userService.insert(u), true);
