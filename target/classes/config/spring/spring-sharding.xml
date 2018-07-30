@@ -37,6 +37,7 @@
         </rdb:sharding-rule>
         <rdb:props>
             <prop key="sql.show">true</prop>
+            <prop key="metrics.enable">true</prop>
         </rdb:props>
     </rdb:data-source>
     

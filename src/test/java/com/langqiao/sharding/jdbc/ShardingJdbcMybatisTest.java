@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.dangdang.ddframe.rdb.sharding.keygen.DefaultKeyGenerator;
 import com.langqiao.sharding.jdbc.entity.Student;
 import com.langqiao.sharding.jdbc.entity.User;
 import com.langqiao.sharding.jdbc.service.StudentService;
@@ -39,7 +40,10 @@ public class ShardingJdbcMybatisTest {
     
     @Test
     public void testStudentInsert() {
+    	DefaultKeyGenerator keyGenerator = new DefaultKeyGenerator();
+        Integer id = keyGenerator.generateKey().intValue();
         Student student = new Student();
+        student.setId(id);
         student.setStudentId(21);
         student.setAge(21);
         student.setName("hehe");
