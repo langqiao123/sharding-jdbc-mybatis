@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * 框架自动生成表模型和CRUD操作，勿修改；
  * 如特殊需要，请以Ext***Mapper自行扩展；
- * 生成日期 : 2018-07-31 19:12:56
+ * 生成日期 : 2018-07-31 19:55:15
  * @author ##your name##
  */
 @Setter
@@ -20,7 +20,7 @@ public class TListingDo {
 
     private Long userId;
 
-    private Integer listingId;
+    private Long listingId;
 
     private String desc;
 

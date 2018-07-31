@@ -2,15 +2,15 @@ package com.langqiao.sharding.jdbc.service;
 
 import java.util.List;
 
-import com.langqiao.sharding.jdbc.entity.User;
+import com.langqiao.sharding.jdbc.entity.TUserDo;
 
 public interface IUserService {
     
-    public boolean insert(User u);
+    public boolean insert(TUserDo u);
     
-    public List<User> findAll();
+    public List<TUserDo> findAll();
     
-    public List<User> findByUserIds(List<Long> ids);
+    public List<TUserDo> findByUserIds(List<Long> ids);
     
     public void transactionTestSucess();
     

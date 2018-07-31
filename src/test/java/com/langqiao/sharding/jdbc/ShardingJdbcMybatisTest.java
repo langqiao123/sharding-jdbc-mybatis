@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.dangdang.ddframe.rdb.sharding.keygen.DefaultKeyGenerator;
 import com.langqiao.sharding.jdbc.entity.Student;
-import com.langqiao.sharding.jdbc.entity.User;
+import com.langqiao.sharding.jdbc.entity.TUserDo;
 import com.langqiao.sharding.jdbc.service.IListingService;
 import com.langqiao.sharding.jdbc.service.IUserService;
 
@@ -31,7 +31,7 @@ public class ShardingJdbcMybatisTest {
 
     @Test
     public void testUserInsert() {
-		User u = new User();
+    	TUserDo u = new TUserDo();
 		u.setAge(25);
 		u.setName("war3");
 		Assert.assertEquals(userService.insert(u), true);
@@ -40,7 +40,7 @@ public class ShardingJdbcMybatisTest {
     @Test
     public void testUserBatchInsert() {
     	for(int i=0;i<100;i++) {
-    		User u = new User();
+    		TUserDo u = new TUserDo();
 //    		u.setUserId(20);
     		u.setAge(25);
     		u.setName("war3");
@@ -68,9 +68,9 @@ public class ShardingJdbcMybatisTest {
 
     @Test
     public void testFindAll(){
-        List<User> users = userService.findAll();
+        List<TUserDo> users = userService.findAll();
         if(null != users && !users.isEmpty()){
-            for(User u :users){
+            for(TUserDo u :users){
                 System.out.println(u);
             }
         }
@@ -78,9 +78,9 @@ public class ShardingJdbcMybatisTest {
     
     @Test
     public void testSQLIN(){
-        List<User> users = userService.findByUserIds(Arrays.asList(12L,14L,17L));
+        List<TUserDo> users = userService.findByUserIds(Arrays.asList(12L,14L,17L));
         if(null != users && !users.isEmpty()){
-            for(User u :users){
+            for(TUserDo u :users){
                 System.out.println(u);
             }
         }

@@ -7,22 +7,23 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.langqiao.sharding.jdbc.entity.TUserDo;
+import com.langqiao.sharding.jdbc.entity.User;
 
 /**
  * 框架自动生成表模型和CRUD操作，勿修改；
  * 如特殊需要，请以Ext***Mapper自行扩展；
- * 生成日期 : 2018-07-31 19:12:56
+ * 生成日期 : 2018-07-31 19:55:15
  * @author ##your name##
  */
 @Repository
 public interface TUserDoMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(TUserDo record);
 
     int insertSelective(TUserDo record);
 
-    TUserDo selectByPrimaryKey(Integer id);
+    TUserDo selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(TUserDo record);
 
@@ -57,4 +58,8 @@ public interface TUserDoMapper {
      * 根据主键批量获取
      */
     List<TUserDo> batchSelectByPrimaryKey(List<Long> pkIds);
+    
+    List<TUserDo> findAll();
+    
+    List<TUserDo> findByUserIds(List<Long> userIds);
 }

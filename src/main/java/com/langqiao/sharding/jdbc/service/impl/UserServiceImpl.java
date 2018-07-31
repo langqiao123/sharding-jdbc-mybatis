@@ -9,9 +9,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.langqiao.sharding.jdbc.entity.Student;
+import com.langqiao.sharding.jdbc.entity.TUserDo;
 import com.langqiao.sharding.jdbc.entity.User;
 import com.langqiao.sharding.jdbc.mapper.StudentMapper;
-import com.langqiao.sharding.jdbc.mapper.UserMapper;
+import com.langqiao.sharding.jdbc.mapper.TUserDoMapper;
 import com.langqiao.sharding.jdbc.service.IUserService;
 
 @Service
@@ -19,26 +20,26 @@ import com.langqiao.sharding.jdbc.service.IUserService;
 public class UserServiceImpl implements IUserService {
 
     @Resource
-    public UserMapper userMapper;
+    public TUserDoMapper userMapper;
     
     @Resource
     public StudentMapper studentMapper;
 
-    public boolean insert(User u) {
+    public boolean insert(TUserDo u) {
         return userMapper.insert(u) > 0 ? true :false;
     }
 
-    public List<User> findAll() {
+    public List<TUserDo> findAll() {
         return userMapper.findAll();
     }
 
-    public List<User> findByUserIds(List<Long> ids) {
+    public List<TUserDo> findByUserIds(List<Long> ids) {
         return userMapper.findByUserIds(ids);
     }
 
     @Transactional(propagation=Propagation.REQUIRED)
     public void transactionTestSucess() {
-        User u = new User();
+    	TUserDo u = new TUserDo();
         u.setUserId(13L);
         u.setAge(25);
         u.setName("war3 1.27");
@@ -53,7 +54,7 @@ public class UserServiceImpl implements IUserService {
 
     @Transactional(propagation=Propagation.REQUIRED)
     public void transactionTestFailure() throws IllegalAccessException {
-        User u = new User();
+    	TUserDo u = new TUserDo();
         u.setUserId(13L);
         u.setAge(25);
         u.setName("war3 1.27 good");

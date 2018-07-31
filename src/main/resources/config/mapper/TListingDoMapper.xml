@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.ppdai.database.model.TListingDo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="listing_id" jdbcType="INTEGER" property="listingId" />
+    <result column="listing_id" jdbcType="BIGINT" property="listingId" />
     <result column="desc" jdbcType="VARCHAR" property="desc" />
     <result column="amount" jdbcType="DECIMAL" property="amount" />
     <result column="inserttime" jdbcType="TIMESTAMP" property="inserttime" />
@@ -28,7 +28,7 @@
     insert into t_listing (id, user_id, listing_id, 
       desc, amount, inserttime, 
       updatetime, isactive)
-    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{listingId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{listingId,jdbcType=BIGINT}, 
       #{desc,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{inserttime,jdbcType=TIMESTAMP}, 
       #{updatetime,jdbcType=TIMESTAMP}, #{isactive,jdbcType=BIT})
   </insert>
@@ -68,7 +68,7 @@
         #{userId,jdbcType=BIGINT},
       </if>
       <if test="listingId != null">
-        #{listingId,jdbcType=INTEGER},
+        #{listingId,jdbcType=BIGINT},
       </if>
       <if test="desc != null">
         #{desc,jdbcType=VARCHAR},
@@ -94,7 +94,7 @@
         user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="listingId != null">
-        listing_id = #{listingId,jdbcType=INTEGER},
+        listing_id = #{listingId,jdbcType=BIGINT},
       </if>
       <if test="desc != null">
         desc = #{desc,jdbcType=VARCHAR},
@@ -117,7 +117,7 @@
   <update id="updateByPrimaryKey" parameterType="com.ppdai.database.model.TListingDo">
     update t_listing
     set user_id = #{userId,jdbcType=BIGINT},
-      listing_id = #{listingId,jdbcType=INTEGER},
+      listing_id = #{listingId,jdbcType=BIGINT},
       desc = #{desc,jdbcType=VARCHAR},
       amount = #{amount,jdbcType=DECIMAL},
       inserttime = #{inserttime,jdbcType=TIMESTAMP},
@@ -132,7 +132,7 @@
          and user_id = #{record.userId,jdbcType=BIGINT}
       </if>
       <if test="record.listingId != null">
-         and listing_id = #{record.listingId,jdbcType=INTEGER}
+         and listing_id = #{record.listingId,jdbcType=BIGINT}
       </if>
       <if test="record.desc != null">
          and desc = #{record.desc,jdbcType=VARCHAR}
@@ -160,7 +160,7 @@
          and user_id = #{record.userId,jdbcType=BIGINT}
       </if>
       <if test="record.listingId != null">
-         and listing_id = #{record.listingId,jdbcType=INTEGER}
+         and listing_id = #{record.listingId,jdbcType=BIGINT}
       </if>
       <if test="record.desc != null">
          and desc = #{record.desc,jdbcType=VARCHAR}
@@ -230,7 +230,7 @@
         #{userId,jdbcType=BIGINT},
       </if>
       <if test="listingId != null">
-        #{listingId,jdbcType=INTEGER},
+        #{listingId,jdbcType=BIGINT},
       </if>
       <if test="desc != null">
         #{desc,jdbcType=VARCHAR},
@@ -252,7 +252,7 @@
   <insert id="batchInsert" parameterType="com.ppdai.database.model.TListingDo">
     insert into t_listing (user_id,listing_id,desc,amount,inserttime,updatetime,isactive ) values 
     <foreach collection="list" index="index" item="item" separator=",">
-       (#{item.userId,jdbcType=BIGINT},#{item.listingId,jdbcType=INTEGER},#{item.desc,jdbcType=VARCHAR},#{item.amount,jdbcType=DECIMAL},#{item.inserttime,jdbcType=TIMESTAMP},#{item.updatetime,jdbcType=TIMESTAMP},#{item.isactive,jdbcType=BIT} ) 
+       (#{item.userId,jdbcType=BIGINT},#{item.listingId,jdbcType=BIGINT},#{item.desc,jdbcType=VARCHAR},#{item.amount,jdbcType=DECIMAL},#{item.inserttime,jdbcType=TIMESTAMP},#{item.updatetime,jdbcType=TIMESTAMP},#{item.isactive,jdbcType=BIT} ) 
     </foreach>
   </insert>
   <select id="batchSelectByPrimaryKey" parameterType="java.util.List" resultMap="BaseResultMap">
