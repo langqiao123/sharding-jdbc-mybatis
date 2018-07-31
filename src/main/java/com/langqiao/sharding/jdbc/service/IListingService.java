@@ -2,7 +2,7 @@ package com.langqiao.sharding.jdbc.service;
 
 import com.langqiao.sharding.jdbc.entity.Student;
 
-public interface StudentService {
+public interface IListingService {
 
     boolean insert(Student student);
 

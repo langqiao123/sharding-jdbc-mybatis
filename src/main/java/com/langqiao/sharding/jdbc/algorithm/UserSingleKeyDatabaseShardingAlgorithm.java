@@ -12,12 +12,12 @@ import com.google.common.collect.Range;
  * @author lyncc
  *
  */
-public class UserSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer>{
+public class UserSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Long>{
 
     /**
      * sql 中关键字 匹配符为 =的时候，表的路由函数
      */
-    public String doEqualSharding(Collection<String> availableTargetNames, ShardingValue<Integer> shardingValue) {
+    public String doEqualSharding(Collection<String> availableTargetNames, ShardingValue<Long> shardingValue) {
         for (String each : availableTargetNames) {
             if (each.endsWith(shardingValue.getValue() % 2 + "")) {
                 return each;
@@ -29,9 +29,9 @@ public class UserSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatabase
     /**
      * sql 中关键字 匹配符为 in 的时候，表的路由函数
      */
-    public Collection<String> doInSharding(Collection<String> availableTargetNames, ShardingValue<Integer> shardingValue) {
+    public Collection<String> doInSharding(Collection<String> availableTargetNames, ShardingValue<Long> shardingValue) {
         Collection<String> result = new LinkedHashSet<String>(availableTargetNames.size());
-        for (Integer value : shardingValue.getValues()) {
+        for (Long value : shardingValue.getValues()) {
             for (String tableName : availableTargetNames) {
                 if (tableName.endsWith(value % 2 + "")) {
                     result.add(tableName);
@@ -45,10 +45,10 @@ public class UserSingleKeyDatabaseShardingAlgorithm implements SingleKeyDatabase
      * sql 中关键字 匹配符为 between的时候，表的路由函数
      */
     public Collection<String> doBetweenSharding(Collection<String> availableTargetNames,
-            ShardingValue<Integer> shardingValue) {
+            ShardingValue<Long> shardingValue) {
         Collection<String> result = new LinkedHashSet<String>(availableTargetNames.size());
-        Range<Integer> range = (Range<Integer>) shardingValue.getValueRange();
-        for (Integer i = range.lowerEndpoint(); i <= range.upperEndpoint(); i++) {
+        Range<Long> range = (Range<Long>) shardingValue.getValueRange();
+        for (Long i = range.lowerEndpoint(); i <= range.upperEndpoint(); i++) {
             for (String each : availableTargetNames) {
                 if (each.endsWith(i % 2 + "")) {
                     result.add(each);

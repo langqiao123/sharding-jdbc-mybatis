@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.langqiao.sharding.jdbc.entity.Student;
 import com.langqiao.sharding.jdbc.mapper.StudentMapper;
-import com.langqiao.sharding.jdbc.service.StudentService;
+import com.langqiao.sharding.jdbc.service.IListingService;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class ListingServiceImpl implements IListingService{
     
     @Resource
     public StudentMapper studentMapper;

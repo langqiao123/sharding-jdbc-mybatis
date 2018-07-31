@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.langqiao.sharding.jdbc.mapper.UserMapper" >
   <resultMap id="resultMap" type="com.langqiao.sharding.jdbc.entity.User" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
   </resultMap>
   
   <insert id="insert">
-    insert into t_user (user_id,name,age) values (#{userId},#{name},#{age})
+    insert into t_user (name,age) values (#{name},#{age})
   </insert>
   
   <select id="findAll" resultMap="resultMap">

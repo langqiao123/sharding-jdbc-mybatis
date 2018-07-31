@@ -25,10 +25,10 @@
 	<rdb:strategy id="studentDatabaseShardingStrategy" sharding-columns="student_id" algorithm-class="com.langqiao.sharding.jdbc.algorithm.StudentSingleKeyDatabaseShardingAlgorithm"/>
         
     <rdb:data-source id="shardingDataSource">
-        <rdb:sharding-rule data-sources="sharding_0,sharding_1">
+        <rdb:sharding-rule data-sources="sharding_0,sharding_1" key-generator-class="com.dangdang.ddframe.rdb.sharding.keygen.DefaultKeyGenerator">
             <rdb:table-rules>
                 <rdb:table-rule logic-table="t_user" actual-tables="t_user_${0..2}" database-strategy="userDatabaseShardingStrategy" table-strategy="userTableShardingStrategy">
-                	<rdb:generate-key-column column-name="id"/>
+                	<rdb:generate-key-column column-name="user_id" column-key-generator-class="com.dangdang.ddframe.rdb.sharding.keygen.DefaultKeyGenerator"/>
                 </rdb:table-rule>
                 <rdb:table-rule logic-table="t_student" actual-tables="t_student_${0..1}" database-strategy="studentDatabaseShardingStrategy" table-strategy="studentTableShardingStrategy">
            			<rdb:generate-key-column column-name="id"/>

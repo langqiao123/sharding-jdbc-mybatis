@@ -12,11 +12,11 @@ import com.langqiao.sharding.jdbc.entity.Student;
 import com.langqiao.sharding.jdbc.entity.User;
 import com.langqiao.sharding.jdbc.mapper.StudentMapper;
 import com.langqiao.sharding.jdbc.mapper.UserMapper;
-import com.langqiao.sharding.jdbc.service.UserService;
+import com.langqiao.sharding.jdbc.service.IUserService;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
     @Resource
     public UserMapper userMapper;
@@ -32,14 +32,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.findAll();
     }
 
-    public List<User> findByUserIds(List<Integer> ids) {
+    public List<User> findByUserIds(List<Long> ids) {
         return userMapper.findByUserIds(ids);
     }
 
     @Transactional(propagation=Propagation.REQUIRED)
     public void transactionTestSucess() {
         User u = new User();
-        u.setUserId(13);
+        u.setUserId(13L);
         u.setAge(25);
         u.setName("war3 1.27");
         userMapper.insert(u);
@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(propagation=Propagation.REQUIRED)
     public void transactionTestFailure() throws IllegalAccessException {
         User u = new User();
-        u.setUserId(13);
+        u.setUserId(13L);
         u.setAge(25);
         u.setName("war3 1.27 good");
         userMapper.insert(u);

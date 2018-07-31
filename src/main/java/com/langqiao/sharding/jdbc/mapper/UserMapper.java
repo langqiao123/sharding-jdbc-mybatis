@@ -10,7 +10,7 @@ public interface UserMapper {
     
     List<User> findAll();
     
-    List<User> findByUserIds(List<Integer> userIds);
+    List<User> findByUserIds(List<Long> userIds);
     
 
 }
