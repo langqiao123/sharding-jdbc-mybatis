@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ppdai.database.genrepository.TListingDoMapper">
-  <resultMap id="BaseResultMap" type="com.ppdai.database.model.TListingDo">
+<mapper namespace="com.langqiao.sharding.jdbc.mapper.TListingDoMapper">
+  <resultMap id="BaseResultMap" type="com.langqiao.sharding.jdbc.entity.TListingDo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="listing_id" jdbcType="BIGINT" property="listingId" />
@@ -24,15 +24,15 @@
     delete from t_listing
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ppdai.database.model.TListingDo">
-    insert into t_listing (id, user_id, listing_id, 
-      desc, amount, inserttime, 
+  <insert id="insert" parameterType="com.langqiao.sharding.jdbc.entity.TListingDo">
+    insert into t_listing (user_id, listing_id, 
+     amount, inserttime, 
       updatetime, isactive)
-    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{listingId,jdbcType=BIGINT}, 
-      #{desc,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{inserttime,jdbcType=TIMESTAMP}, 
+    values (#{userId,jdbcType=BIGINT}, #{listingId,jdbcType=BIGINT}, 
+      #{amount,jdbcType=DECIMAL}, #{inserttime,jdbcType=TIMESTAMP}, 
       #{updatetime,jdbcType=TIMESTAMP}, #{isactive,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ppdai.database.model.TListingDo">
+  <insert id="insertSelective" parameterType="com.langqiao.sharding.jdbc.entity.TListingDo">
     insert into t_listing
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ppdai.database.model.TListingDo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.langqiao.sharding.jdbc.entity.TListingDo">
     update t_listing
     <set>
       <if test="userId != null">
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ppdai.database.model.TListingDo">
+  <update id="updateByPrimaryKey" parameterType="com.langqiao.sharding.jdbc.entity.TListingDo">
     update t_listing
     set user_id = #{userId,jdbcType=BIGINT},
       listing_id = #{listingId,jdbcType=BIGINT},
@@ -197,7 +197,7 @@
     </foreach>
     and isactive = 1
   </update>
-  <insert id="insertSelectiveReturnPrimaryKey" parameterType="com.ppdai.database.model.TListingDo">
+  <insert id="insertSelectiveReturnPrimaryKey" parameterType="com.langqiao.sharding.jdbc.entity.TListingDo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       select LAST_INSERT_ID() as id
     </selectKey>
@@ -249,7 +249,7 @@
       </if>
     </trim>
   </insert>
-  <insert id="batchInsert" parameterType="com.ppdai.database.model.TListingDo">
+  <insert id="batchInsert" parameterType="com.langqiao.sharding.jdbc.entity.TListingDo">
     insert into t_listing (user_id,listing_id,desc,amount,inserttime,updatetime,isactive ) values 
     <foreach collection="list" index="index" item="item" separator=",">
        (#{item.userId,jdbcType=BIGINT},#{item.listingId,jdbcType=BIGINT},#{item.desc,jdbcType=VARCHAR},#{item.amount,jdbcType=DECIMAL},#{item.inserttime,jdbcType=TIMESTAMP},#{item.updatetime,jdbcType=TIMESTAMP},#{item.isactive,jdbcType=BIT} ) 
